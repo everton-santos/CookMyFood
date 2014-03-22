@@ -1,4 +1,4 @@
-package com.everton.cookmyfood.models;
+package com.everton.cookmyfood.Models;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -32,7 +32,7 @@ public class Pedido extends AbstractModel {
 	private Funcionario funcionario;
 
 	@Override
-	protected Serializable GetId() {
+	public Serializable GetId() {
 		return this.id;
 	}
 

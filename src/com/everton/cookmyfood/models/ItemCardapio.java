@@ -1,13 +1,15 @@
-package com.everton.cookmyfood.models;
+package com.everton.cookmyfood.Models;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class ItemCardapio extends AbstractModel {
 
 	@Id
@@ -27,7 +29,7 @@ public class ItemCardapio extends AbstractModel {
 	private Cardapio cardapio;
 	
 	@Override
-	protected Serializable GetId() {
+	public Serializable GetId() {
 		return this.id;
 	}
 	

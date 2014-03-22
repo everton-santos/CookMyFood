@@ -1,11 +1,13 @@
-package com.everton.cookmyfood.models;
+package com.everton.cookmyfood.Models;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Categoria extends AbstractModel {
 
 	@Id
@@ -31,7 +33,7 @@ public class Categoria extends AbstractModel {
 	}
 
 	@Override
-	protected Serializable GetId() {
+	public Serializable GetId() {
 		return this.id;
 	}
 

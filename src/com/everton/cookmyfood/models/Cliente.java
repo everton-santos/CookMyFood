@@ -1,4 +1,4 @@
-package com.everton.cookmyfood.models;
+package com.everton.cookmyfood.Models;
 
 import java.util.Collection;
 

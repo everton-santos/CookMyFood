@@ -1,100 +1,79 @@
-package com.everton.cookmyfood.models;
+package com.everton.cookmyfood.Models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Usuario extends AbstractModel {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(nullable = false, unique = true)
 	private String loginName;
+	@Column(nullable = false)
 	private String loginPass;
-	private String Nome;
-	private String Email;
-	private String Telefone;
-	
-	
-	
+	@Column(nullable = false)
+	private String nome;
+	private String email;
+	private String celular;
+
 	public Long getId() {
 		return id;
 	}
-
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-
 	public String getLoginName() {
 		return loginName;
 	}
-
-
 
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
 	}
 
-
-
 	public String getLoginPass() {
 		return loginPass;
 	}
-
-
 
 	public void setLoginPass(String loginPass) {
 		this.loginPass = loginPass;
 	}
 
-
-
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
-
-
 
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
 	}
-
-
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
-
-
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
-
-
-	public String getTelefone() {
-		return Telefone;
+	public String getCelular() {
+		return celular;
 	}
 
-
-
-	public void setTelefone(String telefone) {
-		Telefone = telefone;
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
-
-
 
 	@Override
-	protected Serializable GetId() {
+	public Serializable GetId() {
 		return this.id;
 	}
 

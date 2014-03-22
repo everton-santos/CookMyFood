@@ -1,8 +1,8 @@
-package com.everton.cookmyfood.models;
+package com.everton.cookmyfood.Models;
 
 import java.io.Serializable;
 
 public abstract class AbstractModel implements Serializable {
 
-	protected abstract Serializable GetId();
+	public abstract Serializable GetId();
 }

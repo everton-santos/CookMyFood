@@ -1,8 +1,10 @@
-package com.everton.cookmyfood.models;
+package com.everton.cookmyfood.Models;
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Delivery extends Pedido {
 	
 	private double trocoPara;
