@@ -9,5 +9,5 @@ public class MesaAplicacao extends GenericAplicacao<Mesa, MesaDAO> {
 	public MesaDAO getDaoInstance() {
 		return new MesaDAO();
 	}
-
+	
 }

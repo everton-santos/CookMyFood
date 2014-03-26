@@ -1,5 +1,6 @@
 package com.everton.cookmyfood.Models;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -8,6 +9,7 @@ public class Endereco {
 	private String logradouro;
 	private String bairro;
 	private String numero;
+	@Column(nullable=true)
 	private int cep;
 	private String complemento;
 	private String telefone;

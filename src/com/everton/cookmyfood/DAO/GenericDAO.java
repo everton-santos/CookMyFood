@@ -10,7 +10,7 @@ import javax.persistence.Query;
 
 import com.everton.cookmyfood.Models.AbstractModel;
 
-public class GenericDAO<T extends AbstractModel> {
+public abstract class GenericDAO<T extends AbstractModel> {
 
 	protected static EntityManagerFactory entityManagerFactory;
 	protected EntityManager manager;
@@ -37,6 +37,7 @@ public class GenericDAO<T extends AbstractModel> {
 			incluir(obj);
 		}
 	}
+	
 
 	protected void incluir(T obj) {
 		manager = entityManagerFactory.createEntityManager();
@@ -48,9 +49,9 @@ public class GenericDAO<T extends AbstractModel> {
 
 	public void remover(T obj) {
 		manager = entityManagerFactory.createEntityManager();
+		T pObj = (T) manager.find(obj.getClass(), obj.GetId());
 		manager.getTransaction().begin();
-		manager.merge(obj);
-		manager.detach(obj);
+		manager.remove(pObj);
 		manager.getTransaction().commit();
 		manager.close();
 	}
@@ -65,7 +66,7 @@ public class GenericDAO<T extends AbstractModel> {
 
 		try {
 			if (id != null) {
-				result = ((List<T>) manager.find(obj.getClass(), id)).get(0);
+				result =  (T) manager.find(obj.getClass(), id);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
