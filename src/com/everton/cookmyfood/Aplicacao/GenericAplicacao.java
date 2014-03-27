@@ -1,5 +1,6 @@
 package com.everton.cookmyfood.Aplicacao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.everton.cookmyfood.DAO.GenericDAO;
@@ -23,8 +24,6 @@ public abstract class GenericAplicacao<T extends AbstractModel, D extends Generi
 		return dao.listar(obj);
 	}
 	
-	public T listarPorID(T obj){
-		return dao.consultarPorID(obj);
-	}
+	public abstract T consultarPorID(Serializable id);
 
 }

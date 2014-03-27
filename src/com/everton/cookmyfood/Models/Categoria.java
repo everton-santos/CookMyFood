@@ -36,5 +36,10 @@ public class Categoria extends AbstractModel {
 	public Serializable GetId() {
 		return this.id;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("Categoria || id = %d , nome = %s", this.id, this.nome);
+	}
 
 }

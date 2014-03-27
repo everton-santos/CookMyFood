@@ -51,4 +51,14 @@ public class Cardapio extends AbstractModel {
 		return this.id;
 	}
 
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	
+	
 }

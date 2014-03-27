@@ -87,9 +87,11 @@ public abstract class GenericDAO<T extends AbstractModel> {
 	protected void alterar(T obj) {
 		manager = entityManagerFactory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.persist(obj);
+		manager.merge(obj);
 		manager.getTransaction().commit();
 		manager.close();
 	}
+	
+	
 
 }

@@ -1,5 +1,6 @@
 package com.everton.cookmyfood.Aplicacao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.everton.cookmyfood.DAO.ItemCardapioDAO;
@@ -19,6 +20,13 @@ public class ItemCardapioAplicacao extends
 			item.setPedido(p);
 			dao.salvar(item);
 		}
+	}
+
+	@Override
+	public ItemCardapio consultarPorID(Serializable id) {
+		ItemCardapio i = new ItemCardapio();
+		i.setId((Long) id);
+		return dao.consultarPorID(i);
 	}
 
 }

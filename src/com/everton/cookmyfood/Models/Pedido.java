@@ -3,7 +3,9 @@ package com.everton.cookmyfood.Models;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 public class Pedido extends AbstractModel {
@@ -25,11 +29,12 @@ public class Pedido extends AbstractModel {
 
 	private StatusPedido status;
 
-	@OneToMany(mappedBy = "pedido")
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.PERSIST)
 	private Collection<ItemCardapio> itensCardapio;
 
 	@ManyToOne
 	private Funcionario funcionario;
+
 
 	@Override
 	public Serializable GetId() {
@@ -59,4 +64,22 @@ public class Pedido extends AbstractModel {
 	public void setStatus(StatusPedido status) {
 		this.status = status;
 	}
+
+	public Collection<ItemCardapio> getItensCardapio() {
+		return itensCardapio;
+	}
+
+	public void setItensCardapio(Collection<ItemCardapio> itensCardapio) {
+		this.itensCardapio = itensCardapio;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+	
+	
 }
