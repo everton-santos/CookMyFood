@@ -10,7 +10,7 @@ public class FuncionarioDAO extends GenericDAO<Funcionario> {
 
 		manager = entityManagerFactory.createEntityManager();
 		Query query = manager.createQuery(String.format(
-				"select c from %s c where c.loginname = %s and c.loginpass %s",
+				"select c from %s c where c.loginname = '%s' and c.loginpass '%s'",
 				Funcionario.class.getName(), usuario.getLoginName(),
 				usuario.getLoginPass()), Funcionario.class);
 
