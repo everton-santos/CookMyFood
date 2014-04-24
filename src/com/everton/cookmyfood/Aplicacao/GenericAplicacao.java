@@ -2,6 +2,7 @@ package com.everton.cookmyfood.Aplicacao;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import com.everton.cookmyfood.DAO.GenericDAO;
 import com.everton.cookmyfood.Models.AbstractModel;
@@ -25,5 +26,10 @@ public abstract class GenericAplicacao<T extends AbstractModel, D extends Generi
 	}
 	
 	public abstract T consultarPorID(Serializable id);
+	
+	public List<T> listarPorLike(Map<String, Object> atributos){
+		return dao.listarPorLike(atributos);
+	}
+	
 
 }

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import com.everton.cookmyfood.DAO.FuncionarioDAO;
 import com.everton.cookmyfood.Models.Funcionario;
-import com.everton.cookmyfood.Models.Usuario;
 
 public class FuncionarioAplicacao extends GenericAplicacao<Funcionario, FuncionarioDAO> {
 

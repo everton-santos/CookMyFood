@@ -4,4 +4,9 @@ import com.everton.cookmyfood.Models.Cardapio;
 
 public class CardapioDAO extends GenericDAO<Cardapio> {
 
+	@Override
+	public Class getEntityClass() {
+		return Cardapio.class;
+	}
+
 }

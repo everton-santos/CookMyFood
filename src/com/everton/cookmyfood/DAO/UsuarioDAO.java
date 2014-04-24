@@ -17,4 +17,9 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
 		return user;
 	}
 
+	@Override
+	public Class getEntityClass() {
+		return Usuario.class;
+	}
+
 }

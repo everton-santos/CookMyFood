@@ -4,11 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Query;
-
 import com.everton.cookmyfood.DAO.PedidoTradicionalDAO;
-import com.everton.cookmyfood.Models.Delivery;
-import com.everton.cookmyfood.Models.Pedido;
 import com.everton.cookmyfood.Models.PedidoTradicional;
 import com.everton.cookmyfood.Models.StatusPedido;
 
