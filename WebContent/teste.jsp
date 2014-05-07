@@ -9,6 +9,6 @@
       <p id="copyright">Copyright 1927, Future Bits When There Be Bits Inc.</p>
     </jsp:attribute>
     <jsp:body>
-        <p>Hi I'm the heart of the message</p>
+        <p>Emanoel alterou aqui</p>
     </jsp:body>
 </t:layout>
