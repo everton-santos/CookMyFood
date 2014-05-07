@@ -19,5 +19,7 @@
 	<classpathentry kind="lib" path="libs/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="libs/slf4j-log4j12-1.6.1.jar"/>
 	<classpathentry kind="lib" path="libs/slf4j-simple-1.6.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
