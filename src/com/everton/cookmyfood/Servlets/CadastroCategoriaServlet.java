@@ -20,10 +20,13 @@ public class CadastroCategoriaServlet extends HttpServlet {
         
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		Categoria c = new Categoria();
-		c.setNome("refrigerantes");
+		
+		String nome = request.getParameter("nome");
+		
+		c.setNome(nome);
 
 		CategoriaAplicacao app = new CategoriaAplicacao();
 		app.salvar(c);
