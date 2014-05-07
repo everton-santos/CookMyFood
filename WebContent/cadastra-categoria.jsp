@@ -9,7 +9,7 @@
     <jsp:body>
         <div class="col-md-12">
         	<form action="cadastro-categoria.do" method="post">
-    			<input type="text" placeholder="Nome da cateria" name="nome" />
+    			<input type="text" placeholder="Nome da categoria" name="nome" />
 			
 			<input type="submit" value="Cadastrar" />
         	</form>
