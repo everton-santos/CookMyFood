@@ -31,6 +31,9 @@ public class CadastroCategoriaServlet extends HttpServlet {
 		CategoriaAplicacao app = new CategoriaAplicacao();
 		app.salvar(c);
 		
+		
+		response.sendRedirect("");
+		
 	}
 
 }
