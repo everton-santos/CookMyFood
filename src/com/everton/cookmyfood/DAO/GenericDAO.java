@@ -107,7 +107,7 @@ public abstract class GenericDAO<T extends AbstractModel> {
 		for (Entry<String, Object> entry : atributos.entrySet()) {
 			
 			if (entry.getValue() instanceof String) {
-				atts.add(String.format("%s like :%s", entry.getKey(),
+				atts.add(String.format("UPPER(%s) like UPPER(:%s)", entry.getKey(),
 						entry.getKey().toString()));
 			} else {
 				atts.add(String.format("%s = :%s", entry.getKey(),
@@ -115,7 +115,7 @@ public abstract class GenericDAO<T extends AbstractModel> {
 			}
 		}
 
-		String sql = String.format("select c from %s c where %s",
+		String sql = String.format("select c from %s c where %s ",
 				getEntityClass().getSimpleName(),
 				StringUtil.join(atts, " and "));
 

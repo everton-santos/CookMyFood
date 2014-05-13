@@ -59,15 +59,25 @@
 				<div class="sidebar-collapse">
 					<ul class="nav" id="side-menu">
 
-						<li><a href="index.html"><i class="fa fa-fw"></i>
-								Cadastrar Pedido</a></li>
+						<li class=""><a href="#"> <i
+								class="fa fa-fw"></i> Cliente<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse" style="height: 0px;">
+								<li><a href="lista-cliente.do">Listar</a></li>
+								<li><a href="cadastro-cliente.jsp">Cadastrar</a></li>
+							</ul> <!-- /.nav-second-level --></li>
+							
+							<li class=""><a href="#"> <i
+								class="fa fa-fw"></i> Pedido Delivery<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse" style="height: 0px;">
+								<li><a href="lista-pedido-delivery.do">Meus Pedidos</a></li>
+								<li><a href="cadastro-pedido-delivery.jsp">Cadastrar</a></li>
+							</ul> <!-- /.nav-second-level --></li>
 						
 						<li class=""><a href="#"> <i
 								class="fa fa-fw"></i> Categoria<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
-								<li><a href="lista-categoria.do">Listar categorias</a></li>
-								<li><a href="cadastro-categoria.do">Cadastrar nova
-										categoria</a></li>
+								<li><a href="lista-categoria.do">Listar</a></li>
+								<li><a href="cadastro-categoria.jsp">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
 					</ul>

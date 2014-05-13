@@ -81,5 +81,15 @@ public class Pedido extends AbstractModel {
 		this.funcionario = funcionario;
 	}
 	
+	public double getTotal(){
+		double t = 0D;
+		
+		for (ItemCardapio item : itensCardapio) {
+			t += item.getPreco();
+		}
+		
+		return t;
+	}
+	
 	
 }

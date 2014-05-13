@@ -7,7 +7,7 @@
 
 <t:top>
 	<jsp:attribute name="titulo">
-      Cadastrar nova categoria
+      Cadastrar categoria
     </jsp:attribute>
 
 </t:top>
