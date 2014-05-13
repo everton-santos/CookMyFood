@@ -9,9 +9,11 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
 	public Usuario getUsuarioAutorizado(Usuario usuario) {
 		manager = entityManagerFactory.createEntityManager();
 		Query query = manager.createQuery(String.format(
-				"select c from %s c where c.loginname = %s and c.loginpass %s",
-				Usuario.class.getName(), usuario.getLoginName(),
-				usuario.getLoginPass()), Usuario.class);
+				"select c from %s c where c.loginName = ? and c.loginPass = ?",
+				Usuario.class.getSimpleName()), Usuario.class);
+		
+		query.setParameter(1, usuario.getLoginName());
+		query.setParameter(2, usuario.getLoginPass());
 		
 		Usuario user = (Usuario) query.getSingleResult();
 		return user;
