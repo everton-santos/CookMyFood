@@ -80,11 +80,18 @@
 								<li><a href="cadastro-categoria.jsp">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
-						<li class=""><a href="#"> <i class="fa fa-fw"></i>
-								Mesa<span class="fa arrow"></span></a>
+						<li class=""><a href="#"> <i class="fa fa-fw"></i> Mesa<span
+								class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
 								<li><a href="lista-mesa.do">Listar</a></li>
 								<li><a href="cadastro-mesa.jsp">Cadastrar</a></li>
+							</ul> <!-- /.nav-second-level --></li>
+
+						<li class=""><a href="#"> <i class="fa fa-fw"></i> Funcionario<span
+								class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse" style="height: 0px;">
+								<li><a href="lista-funcionario.do">Listar</a></li>
+								<li><a href="cadastro-funcionario.jsp">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
 					</ul>

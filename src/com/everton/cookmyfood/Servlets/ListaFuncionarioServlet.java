@@ -13,22 +13,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.everton.cookmyfood.Aplicacao.CategoriaAplicacao;
+import com.everton.cookmyfood.Aplicacao.FuncionarioAplicacao;
 import com.everton.cookmyfood.Aplicacao.MesaAplicacao;
-import com.everton.cookmyfood.Models.Categoria;
+import com.everton.cookmyfood.Models.Funcionario;
 import com.everton.cookmyfood.Models.Mesa;
 
 /**
- * Servlet implementation class ListaMesaServlet
+ * Servlet implementation class ListaFuncionarioServlet
  */
-@WebServlet("/lista-mesa.do")
-public class ListaMesaServlet extends HttpServlet {
+@WebServlet("/lista-funcionario.do")
+public class ListaFuncionarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ListaMesaServlet() {
+    public ListaFuncionarioServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,33 +40,25 @@ public class ListaMesaServlet extends HttpServlet {
 			
 		}
 
-		MesaAplicacao app = new MesaAplicacao();
-		List<Mesa> categorias = Collections.EMPTY_LIST;
+		FuncionarioAplicacao app = new FuncionarioAplicacao();
+		List<Funcionario> lista = Collections.EMPTY_LIST;
 
 		if (pesquisa == null || pesquisa.equals("")) {
-			categorias = app.listar(new Mesa());
+			lista = app.listar(new Funcionario());
 		}
 		else
 		{
 			Map<String, Object> atributos = new HashMap<String, Object>();
-			try {
-				atributos.put("numero", Integer.parseInt( pesquisa));
-			} catch (NumberFormatException e) {
-				
-			}
-			try {
-				atributos.put("capacidade", Integer.parseInt( pesquisa));
-			} catch (NumberFormatException e) {
-				
-			}
+			atributos.put("nome", pesquisa);
 			
-			categorias = app.listarPorLike(atributos);
+			lista = app.listarPorLike(atributos);
 		}
 
-		request.setAttribute("lista", categorias);
+		request.setAttribute("lista", lista);
 		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("/lista-mesa.jsp");
+				.getRequestDispatcher("/lista-funcionario.jsp");
 		dispatcher.forward(request, response);
+
 		
 		
 	}

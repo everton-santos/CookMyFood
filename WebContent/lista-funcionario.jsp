@@ -1,4 +1,5 @@
-<%@page import="com.everton.cookmyfood.Models.Mesa"%>
+<%@page import="com.everton.cookmyfood.Models.Funcionario"%>
+<%@page import="com.everton.cookmyfood.Models.Cliente"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.everton.cookmyfood.Models.Categoria"%>
@@ -8,7 +9,7 @@
 
 <t:top>
 	<jsp:attribute name="titulo">
-      Listar Mesa
+      Listar funcionario
       
     </jsp:attribute>
 
@@ -17,11 +18,13 @@
 <div class="col-md-12">
 
 
-	<div class="panel panel-default">
-		<div class="panel-heading">Listar Mesa</div>
-		<!-- /.panel-heading -->
 
-		<form role="form" action="lista-mesa.do" method="get">
+
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Listar Funcionario</div>
+
+		<form role="form" action="lista-funcionario.do" method="get">
 
 			<div class="col-lg-6">
 				<div class="form-group">
@@ -34,7 +37,7 @@
 			<input type="submit" value="Pesquisar" />
 
 		</form>
-
+		<!-- /.panel-heading -->
 		<div class="panel-body">
 			<div class="table-responsive">
 				<table class="table table-striped">
@@ -42,26 +45,20 @@
 						<tr>
 							<th>#</th>
 							<th>Descricao</th>
-							<th>Capacidade</th>
-							<th>Acoes</th>
 						</tr>
 					</thead>
 					<tbody>
 						<%
-							List<Mesa> lista = (List<Mesa>) request
-									.getAttribute("lista");
+							List<Funcionario> lista = (List<Funcionario>) request.getAttribute("lista");
 
-							for (Mesa categoria : lista) {
+							for (Funcionario categoria : lista) {
 						%>
 
 
 
 						<tr>
 							<td><%=categoria.getId()%></td>
-							<td><%=categoria.getNumero()%></td>
-							<td><%=categoria.getCapacidade()%></td>
-							<td><a href="excluir-mesa.do?id=<%=categoria.getId()%>">Excluir</a>
-							</td>
+							<td><%=categoria.getNome()%></td>
 						</tr>
 
 
