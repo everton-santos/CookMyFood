@@ -13,6 +13,7 @@
 			<input type="password" placeholder="Usuario" name="loginPass" />
 			
 			<input type="submit" value="Entrar" />
+		
         	</form>
         </div> 
     </jsp:body>

@@ -17,6 +17,21 @@
 <div class="col-md-12">
 
 
+		<form role="form" action="lista-cliente.do" method="get">
+
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Filtro</label> <input type="text" name="p"
+						class="form-control" placeholder="Pesquisar">
+				</div>
+
+			</div>
+
+			<input type="submit" value="Pesquisar" />
+
+		</form>
+
+
 	<div class="panel panel-default">
 		<div class="panel-heading">Listar Clientes</div>
 		<!-- /.panel-heading -->

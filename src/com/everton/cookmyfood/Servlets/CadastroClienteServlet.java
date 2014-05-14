@@ -50,7 +50,7 @@ public class CadastroClienteServlet extends HttpServlet {
 		ClienteAplicacao app = new ClienteAplicacao();
 		app.salvar(cliente);
 		
-		response.sendRedirect("lista-cliente.do");
+		response.sendRedirect("index.html");
 	}
 
 }

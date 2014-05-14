@@ -1,7 +1,10 @@
 package com.everton.cookmyfood.Servlets;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,18 +27,32 @@ public class ListaCategoriaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		CategoriaAplicacao app = new CategoriaAplicacao();
+		String pesquisa = "";
 
-		List<Categoria> categorias = app.listar(new Categoria());
+		try {
+			pesquisa = request.getParameter("p");
+		} catch (Exception e) {
+			
+		}
+
+		CategoriaAplicacao app = new CategoriaAplicacao();
+		List<Categoria> categorias = Collections.EMPTY_LIST;
+
+		if (pesquisa == null || pesquisa.equals("")) {
+			categorias = app.listar(new Categoria());
+		}
+		else
+		{
+			Map<String, Object> atributos = new HashMap<String, Object>();
+			atributos.put("nome", pesquisa);
+			
+			categorias = app.listarPorLike(atributos);
+		}
 
 		request.setAttribute("categorias", categorias);
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/lista-categoria.jsp");
 		dispatcher.forward(request, response);
-		
-		
-		
-		
 
 	}
 

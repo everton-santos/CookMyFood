@@ -19,6 +19,21 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">Listar Categorias</div>
 		<!-- /.panel-heading -->
+
+		<form role="form" action="lista-categoria.do" method="get">
+
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Filtro</label> <input type="text" name="p"
+						class="form-control" placeholder="Pesquisar">
+				</div>
+
+			</div>
+
+			<input type="submit" value="Pesquisar" />
+
+		</form>
+
 		<div class="panel-body">
 			<div class="table-responsive">
 				<table class="table table-striped">
@@ -26,6 +41,7 @@
 						<tr>
 							<th>#</th>
 							<th>Descricao</th>
+							<th>Acoes</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -41,6 +57,8 @@
 						<tr>
 							<td><%=categoria.getId()%></td>
 							<td><%=categoria.getNome()%></td>
+							<td><a href="excluir-categoria.do?id=<%=categoria.getId()%>">Excluir</a>
+							</td>
 						</tr>
 
 

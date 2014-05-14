@@ -7,7 +7,7 @@
 
 <t:top>
 	<jsp:attribute name="titulo">
-      Cadastrar Pedido Delivery
+      Cadastrar Cardapio
     </jsp:attribute>
 
 </t:top>
@@ -15,14 +15,15 @@
 <div class="col-md-12">
 
 	<div class="panel panel-default">
-		<div class="panel-heading">Cadastrar Pedido Delivery</div>
+		<div class="panel-heading">Cadastrar Cliente</div>
 		<div class="panel-body">
 			<div class="row">
 
 				<form role="form" method="post" action="cadastro-cliente.do">
 					<div class="col-lg-6">
 						<div class="form-group">
-							<label>Item</label> 
+							<label>Login</label> <input type="text" name="loginName" class="form-control"
+								placeholder="Digite Login">
 						</div>
 
 						<div class="form-group">
