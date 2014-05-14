@@ -17,6 +17,12 @@
 <div class="col-md-12">
 
 
+
+
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Listar Clientes</div>
+
 		<form role="form" action="lista-cliente.do" method="get">
 
 			<div class="col-lg-6">
@@ -30,10 +36,6 @@
 			<input type="submit" value="Pesquisar" />
 
 		</form>
-
-
-	<div class="panel panel-default">
-		<div class="panel-heading">Listar Clientes</div>
 		<!-- /.panel-heading -->
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -46,8 +48,7 @@
 					</thead>
 					<tbody>
 						<%
-							List<Cliente> lista = (List<Cliente>) request
-									.getAttribute("lista");
+							List<Cliente> lista = (List<Cliente>) request.getAttribute("lista");
 
 							for (Cliente categoria : lista) {
 						%>
