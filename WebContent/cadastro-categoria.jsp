@@ -9,7 +9,6 @@
 	<jsp:attribute name="titulo">
       Cadastrar categoria
     </jsp:attribute>
-
 </t:top>
 
 <div class="col-md-12">
