@@ -34,7 +34,7 @@ public class ListaPedidoDelivery extends HttpServlet {
 
 		DeliveryAplicacao app = new DeliveryAplicacao();
 
-		Map<String, Object> atributos =  new HashMap<String, Object>();
+		Map<String, Object> atributos = new HashMap<String, Object>();
 
 		try {
 			atributos.put("id", Integer.parseInt(LeitorParatetrosParaServlet
@@ -42,10 +42,23 @@ public class ListaPedidoDelivery extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		atributos.put("id_cliente", request.getSession().getAttribute("user_id"));
 
-		List<Delivery> lista = app.listarPorLike(atributos);
+//		try {
+//			Long userId = Long.parseLong(request.getSession()
+//					.getAttribute("user-id").toString());
+//
+//			if (userId > 0) {
+//				atributos.put("id_cliente", userId);
+//			}
+//		} catch (Exception e) {
+//		}
+
+		List<Delivery> lista;
+		if (atributos.size() <= 0) {
+			lista = app.listar(new Delivery());
+		} else {
+			lista = app.listarPorLike(atributos);
+		}
 
 		request.setAttribute("model", lista);
 		RequestDispatcher dispatcher = request

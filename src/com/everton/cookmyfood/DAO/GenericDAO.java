@@ -107,10 +107,10 @@ public abstract class GenericDAO<T extends AbstractModel> {
 		for (Entry<String, Object> entry : atributos.entrySet()) {
 			
 			if (entry.getValue() instanceof String) {
-				atts.add(String.format("UPPER(%s) like UPPER(:%s)", entry.getKey(),
+				atts.add(String.format("UPPER(c.%s) like UPPER(:%s)", entry.getKey(),
 						entry.getKey().toString()));
 			} else {
-				atts.add(String.format("%s = :%s", entry.getKey(),
+				atts.add(String.format("c.%s = :%s", entry.getKey(),
 						entry.getKey().toString()));		
 			}
 		}

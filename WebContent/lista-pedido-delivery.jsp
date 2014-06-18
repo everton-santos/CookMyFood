@@ -24,7 +24,21 @@
 
 
 	<div class="panel panel-default">
-		<div class="panel-heading">Listar Clientes</div>
+		<div class="panel-heading">
+			<form role="form" action="lista-pedido-delivery.do" method="get">
+
+				<div class="col-lg-6">
+					<div class="form-group">
+						<input type="text" name="id" class="form-control"
+							placeholder="Pesquisar numero do pedido">
+					</div>
+				</div>
+
+				<input type="submit" class="btn btn-default" value="Pesquisar" />
+
+			</form>
+
+		</div>
 		<!-- /.panel-heading -->
 		<div class="panel-body">
 			<div class="table-responsive">
