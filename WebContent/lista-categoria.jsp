@@ -17,22 +17,26 @@
 
 
 	<div class="panel panel-default">
-		<div class="panel-heading">Listar Categorias</div>
-		<!-- /.panel-heading -->
-
+		<div class="panel-heading">
+		
 		<form role="form" action="lista-categoria.do" method="get">
 
 			<div class="col-lg-6">
 				<div class="form-group">
-					<label>Filtro</label> <input type="text" name="p"
+					<input type="text" name="p"
 						class="form-control" placeholder="Pesquisar">
 				</div>
 
 			</div>
 
-			<input type="submit" value="Pesquisar" />
+			<input type="submit" class="btn btn-default" value="Pesquisar" />
 
 		</form>
+		
+		</div>
+		<!-- /.panel-heading -->
+
+		
 
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -41,10 +45,11 @@
 						<tr>
 							<th>#</th>
 							<th>Descricao</th>
-							<th>Acoes</th>
+							<th>Ações</th>
 						</tr>
 					</thead>
 					<tbody>
+					
 						<%
 							List<Categoria> lista = (List<Categoria>) request
 									.getAttribute("categorias");
@@ -57,7 +62,9 @@
 						<tr>
 							<td><%=categoria.getId()%></td>
 							<td><%=categoria.getNome()%></td>
-							<td><a href="excluir-categoria.do?id=<%=categoria.getId()%>">Excluir</a>
+							<td>
+							<a href="alterar-categoria.do?id=<%=categoria.getId()%>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+							<a href="excluir-categoria.do?id=<%=categoria.getId()%>" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
 							</td>
 						</tr>
 

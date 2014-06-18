@@ -5,16 +5,26 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 
+<%
+
+Categoria categoria = (Categoria) request.getAttribute("categoria");
+
+%>
+
+
 <t:top>
 	<jsp:attribute name="titulo">
-      Cadastrar categoria
+      Aterar categoria
     </jsp:attribute>
 </t:top>
 
 <div class="col-md-12">
-	<form action="cadastro-categoria.do" method="post">
+	<form action="alterar-categoria.do" method="post">
+		<legend>Alterando a categoria "<%= categoria.getNome().toUpperCase()  %>"</legend>
+	
+		<input  type="hidden" name="id" value="<%= categoria.getId() %>" />
 		<input type="text" placeholder="Nome da categoria" name="nome" /> 
-		<input type="submit" value="Cadastrar" />
+		<input type="submit" class="btn btn-sucess" value="Atualizar" />
 	</form>
 </div>
 
