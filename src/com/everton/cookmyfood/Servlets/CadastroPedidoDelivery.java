@@ -80,35 +80,37 @@ public class CadastroPedidoDelivery extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		
 		Long id = Long.parseLong(request.getParameter("id"));
 
 		DeliveryAplicacao app = new DeliveryAplicacao();
-		
+
 		Delivery delivery = app.consultarPorID(id);
-		
+
 		ItemCardapio item = new ItemCardapio();
-		
-		item.setPedido(delivery);
-		
-		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-		
-		item.setQuantidade(quantidade);
-		
-		Long idCardapio = Long.parseLong(request.getParameter("idCardapio"));
-		
-		Cardapio cardapio = new CardapioAplicacao().consultarPorID(idCardapio);
-		
-		item.setCardapio(cardapio);
-		
-		ItemCardapioAplicacao aplicacao = new  ItemCardapioAplicacao();
-		
-		app.salvar(delivery);
-		
+
+		ItemCardapioAplicacao aplicacao = new ItemCardapioAplicacao();
+
 		aplicacao.salvar(item);
-		
-		response.sendRedirect("cadastro-pedido-delivery.do?id="+ delivery.getId());
-		
+
+		item.setPedido(delivery);
+
+		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+
+		item.setQuantidade(quantidade);
+
+		Long idCardapio = Long.parseLong(request.getParameter("idCardapio"));
+
+		Cardapio cardapio = new CardapioAplicacao().consultarPorID(idCardapio);
+
+		item.setCardapio(cardapio);
+
+		app.salvar(delivery);
+
+		aplicacao.salvar(item);
+
+		response.sendRedirect("cadastro-pedido-delivery.do?id="
+				+ delivery.getId());
+
 	}
 
 }

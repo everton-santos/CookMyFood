@@ -31,28 +31,31 @@
 
 					<input type="hidden" name="id" value="<%=delivery.getId()%>" />
 
-					<div class="col-lg-12">
+					<div class="col-lg-5">
 						<div class="form-group">
-							<label>Item</label> <select class="form-control"
-								name="idCardapio">
+							<select class="form-control" name="idCardapio">
 
 								<%
 									for (Cardapio c : cardapios) {
 								%>
-								<option value="<%=c.getId()%>"><%=c.getNome() + " | " + c.getPreco()%></option>
+								<option value="<%=c.getId()%>"><%=c.getNome() + " | R$ " + c.getPreco()%></option>
 								<%
 									}
 								%>
 							</select>
 						</div>
-
+					</div>
+					<div class="col-lg-5">
 						<div class="form-group">
-							<label>Item</label> <input name="quantidade" class="form-control" />
+							<input name="quantidade" class="form-control" />
 						</div>
-
+					</div>
+					<div class="col-lg-2">
+						<input type="submit" value="Inserir" class="btn btn-default" />
 					</div>
 
-					<input type="submit" value="Inserir" class="btn btn-default" />
+
+
 
 
 				</form>
@@ -68,6 +71,7 @@
 						<th>Categoria</th>
 						<th>Quantidade</th>
 						<th>Preco uni</th>
+						<th>Acoes</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -80,9 +84,12 @@
 					<tr>
 						<td><%=item.getId()%></td>
 						<td><%=item.getCardapio().getNome()%></td>
-						<td><%=item.getCardapio().getCategoria()%></td>
+						<td><%=item.getCardapio().getCategoria().getNome()%></td>
 						<td><%=item.getQuantidade()%></td>
 						<td><%=item.getPreco()%></td>
+						<td><a href="excluir-item-cardapio.do?id=<%=item.getId()%>"
+							class="btn btn-danger"><span
+								class="glyphicon glyphicon-remove"></span></a></td>
 
 					</tr>
 

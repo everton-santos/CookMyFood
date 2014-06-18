@@ -1,9 +1,9 @@
 package com.everton.cookmyfood.Models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -15,10 +15,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Cascade;
-
 @Entity
 public class Pedido extends AbstractModel {
+	
+	public Pedido(){
+		this.itensCardapio = new ArrayList<ItemCardapio>();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -85,7 +87,7 @@ public class Pedido extends AbstractModel {
 		double t = 0D;
 		
 		for (ItemCardapio item : itensCardapio) {
-			t += item.getPreco();
+			t += item.getPreco() * item.getQuantidade();
 		}
 		
 		return t;

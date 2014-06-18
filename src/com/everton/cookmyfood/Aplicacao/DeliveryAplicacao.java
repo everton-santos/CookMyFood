@@ -13,19 +13,18 @@ public class DeliveryAplicacao extends GenericAplicacao<Delivery, DeliveryDAO> {
 	public DeliveryDAO getDaoInstance() {
 		return new DeliveryDAO();
 	}
-	
-	
+
 	@Override
 	public void salvar(Delivery obj) {
-	
+
 		if (obj.getData() == null) {
 			obj.setData(new Date());
 		}
-		
+
 		super.salvar(obj);
 	}
-	
-	public List<Delivery> getFluxoCaixa(Date dtInicio, Date dtFinal){
+
+	public List<Delivery> getFluxoCaixa(Date dtInicio, Date dtFinal) {
 		return dao.getFluxoCaixa(dtInicio, dtFinal);
 	}
 

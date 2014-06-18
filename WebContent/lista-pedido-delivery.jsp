@@ -50,7 +50,9 @@
 							<td><%=item.getData()%></td>
 							<td><%=item.getTotal()%></td>
 							<td><%=item.getStatus()%></td>
-							<td> Detalhar | Excluir </td>
+							<td><a href="excluir-item-cardapio.do?id=<%=item.getId()%>"
+								class="btn btn-danger"><span
+									class="glyphicon glyphicon-remove"></span></a></td>
 						</tr>
 
 

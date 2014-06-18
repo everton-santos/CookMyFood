@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class ItemCardapio extends AbstractModel {
+	
+	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

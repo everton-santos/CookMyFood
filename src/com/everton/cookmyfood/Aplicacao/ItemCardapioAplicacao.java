@@ -25,7 +25,7 @@ public class ItemCardapioAplicacao extends
 	@Override
 	public void salvar(ItemCardapio obj) {
 	
-		if (obj.getPreco() <= 0) {
+		if (obj.getPreco() <= 0 && obj.getCardapio() != null) {
 			obj.setPreco(obj.getCardapio().getPreco());
 		}
 		
