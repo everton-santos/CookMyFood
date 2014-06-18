@@ -40,6 +40,7 @@
 						<tr>
 							<th>#</th>
 							<th>Descricao</th>
+							<th>Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -54,6 +55,10 @@
 						<tr>
 							<td><%=categoria.getId()%></td>
 							<td><%=categoria.getNome()%></td>
+							<td>
+							<a href="alterar-cliente.do?id=<%=categoria.getId()%>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+							<a href="excluir-cliente.do?id=<%=categoria.getId()%>" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+							</td>
 						</tr>
 
 

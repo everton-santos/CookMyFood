@@ -1,3 +1,6 @@
+<%@page import="com.everton.cookmyfood.Models.ItemCardapio"%>
+<%@page import="com.everton.cookmyfood.Models.Cardapio"%>
+<%@page import="com.everton.cookmyfood.Models.Delivery"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.everton.cookmyfood.Models.Categoria"%>
@@ -5,11 +8,16 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 
+<%
+	Delivery delivery = (Delivery) request.getAttribute("pedido");
+	List<Cardapio> cardapios = (List<Cardapio>) request
+			.getAttribute("cardapios");
+%>
+
 <t:top>
 	<jsp:attribute name="titulo">
       Cadastrar Pedido Delivery
     </jsp:attribute>
-
 </t:top>
 
 <div class="col-md-12">
@@ -19,68 +27,74 @@
 		<div class="panel-body">
 			<div class="row">
 
-				<form role="form" method="post" action="cadastro-cliente.do">
-					<div class="col-lg-6">
+				<form role="form" method="post" action="cadastro-pedido-delivery.do">
+
+					<input type="hidden" name="id" value="<%=delivery.getId()%>" />
+
+					<div class="col-lg-12">
 						<div class="form-group">
-							<label>Item</label> 
+							<label>Item</label> <select class="form-control"
+								name="idCardapio">
+
+								<%
+									for (Cardapio c : cardapios) {
+								%>
+								<option value="<%=c.getId()%>"><%=c.getNome() + " | " + c.getPreco()%></option>
+								<%
+									}
+								%>
+							</select>
 						</div>
 
 						<div class="form-group">
-							<label>Senha</label> <input type="password" name="loginPass" class="form-control"
-								placeholder="Digite Senha">
-						</div>
-
-						<div class="form-group">
-							<label>Nome</label> <input name="nome" class="form-control"
-								placeholder="Digite Nome">
-						</div>
-
-						<div class="form-group">
-							<label>Telefone</label> <input name="celular" class="form-control"
-								placeholder="Digite Telefone">
-						</div>
-
-						<div class="form-group">
-							<label>email</label> <input type="email" name="email" class="form-control"
-								placeholder="Digite Email">
+							<label>Item</label> <input name="quantidade" class="form-control" />
 						</div>
 
 					</div>
 
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label>Rua</label> <input type="text" name="logradouro" class="form-control"
-								placeholder="Digite Rua">
-						</div>
+					<input type="submit" value="Inserir" class="btn btn-default" />
 
-						<div class="form-group">
-							<label>Numero</label> <input type="text" name="numero" class="form-control"
-								placeholder="Digite Numero">
-						</div>
-
-						<div class="form-group">
-							<label>Complemento</label> <input name="complemento" class="form-control"
-								placeholder="Digite Complemento">
-						</div>
-
-						<div class="form-group">
-							<label>Bairro</label> <input name="bairro" class="form-control"
-								placeholder="Digite Bairro">
-						</div>
-
-						<div class="form-group">
-							<label>CEP</label> <input type="text" name="cep" class="form-control"
-								placeholder="Digite CEP">
-						</div>
-
-						<button type="submit" class="btn btn-default">Enviar</button>
-
-					</div>
 
 				</form>
 
 
 			</div>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Descricao</th>
+						<th>Categoria</th>
+						<th>Quantidade</th>
+						<th>Preco uni</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+						for (ItemCardapio item : delivery.getItensCardapio()) {
+					%>
+
+
+
+					<tr>
+						<td><%=item.getId()%></td>
+						<td><%=item.getCardapio().getNome()%></td>
+						<td><%=item.getCardapio().getCategoria()%></td>
+						<td><%=item.getQuantidade()%></td>
+						<td><%=item.getPreco()%></td>
+
+					</tr>
+
+
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+
+
+			<label><%=delivery.getTotal()%></label>
 
 		</div>
 
