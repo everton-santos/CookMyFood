@@ -70,7 +70,7 @@
 								Delivery<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
 								<li><a href="lista-pedido-delivery.do">Meus Pedidos</a></li>
-								<li><a href="cadastro-pedido-delivery.jsp">Cadastrar</a></li>
+								<li><a href="cadastro-pedido-delivery.do">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
 						<li class=""><a href="#"> <i class="fa fa-fw"></i>

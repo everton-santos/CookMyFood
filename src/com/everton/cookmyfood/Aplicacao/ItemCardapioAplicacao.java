@@ -21,6 +21,16 @@ public class ItemCardapioAplicacao extends
 			dao.salvar(item);
 		}
 	}
+	
+	@Override
+	public void salvar(ItemCardapio obj) {
+	
+		if (obj.getPreco() <= 0) {
+			obj.setPreco(obj.getCardapio().getPreco());
+		}
+		
+		super.salvar(obj);
+	}
 
 	@Override
 	public ItemCardapio consultarPorID(Serializable id) {
