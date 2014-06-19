@@ -64,7 +64,10 @@
 							<td><%=item.getData()%></td>
 							<td><%=item.getTotal()%></td>
 							<td><%=item.getStatus()%></td>
-							<td><a href="excluir-item-cardapio.do?id=<%=item.getId()%>"
+							<td><a href="cadastro-pedido-delivery.do?id=<%=item.getId()%>"
+								class="btn btn-primary"><span
+									class="glyphicon glyphicon-pencil"></span></a> <a
+								href="excluir-pedido-delivery.do?id=<%=item.getId()%>"
 								class="btn btn-danger"><span
 									class="glyphicon glyphicon-remove"></span></a></td>
 						</tr>

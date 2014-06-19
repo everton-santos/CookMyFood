@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		request.getSession().setAttribute("user-id", u.getId());
 		request.getSession().setAttribute("user-name", u.getLoginName());
 		
-		response.sendRedirect("lista-categoria.do");
+		response.sendRedirect("lista-pedido-delivery.do");
 		
 	}
 
