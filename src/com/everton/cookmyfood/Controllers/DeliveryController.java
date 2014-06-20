@@ -11,10 +11,12 @@ import com.everton.cookmyfood.Aplicacao.CardapioAplicacao;
 import com.everton.cookmyfood.Aplicacao.ClienteAplicacao;
 import com.everton.cookmyfood.Aplicacao.DeliveryAplicacao;
 import com.everton.cookmyfood.Aplicacao.ItemCardapioAplicacao;
+import com.everton.cookmyfood.Aplicacao.PedidoAplicacao;
 import com.everton.cookmyfood.Models.Cardapio;
 import com.everton.cookmyfood.Models.Cliente;
 import com.everton.cookmyfood.Models.Delivery;
 import com.everton.cookmyfood.Models.ItemCardapio;
+import com.everton.cookmyfood.Models.Pedido;
 
 @Resource
 public class DeliveryController {
@@ -78,5 +80,52 @@ public class DeliveryController {
 		aplicacao.salvar(item);
 
 		result.redirectTo(this).alterar(id);
+	}
+
+	public void excluirItem(Long id) {
+
+		ItemCardapioAplicacao app = new ItemCardapioAplicacao();
+
+		ItemCardapio item = app.consultarPorID(id);
+
+		id = item.getPedido().getId();
+
+		app.remover(item);
+
+		result.redirectTo(this).alterar(id);
+	}
+
+	public void excluir(Long id) {
+		
+		PedidoAplicacao app = new PedidoAplicacao();
+
+		Pedido item = app.consultarPorID(id);
+
+		if (item.getItensCardapio().size() > 0) {
+
+			for (ItemCardapio cardapio : item.getItensCardapio()) {
+				ItemCardapioAplicacao app2 = new ItemCardapioAplicacao();
+				app2.remover(cardapio);
+			}
+		}
+
+		app.remover(item);
+
+		result.redirectTo(this).index();
+	}
+	
+	public void pesquisar(Long id){
+		PedidoAplicacao app = new PedidoAplicacao();
+
+		Pedido item = app.consultarPorID(id);
+		
+		if (item != null) {
+			result.redirectTo(this).alterar(id);
+		}
+		else
+		{
+			result.redirectTo(this).index();
+			
+		}
 	}
 }

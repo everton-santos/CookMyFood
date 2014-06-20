@@ -67,7 +67,7 @@
 							<td>${item.cardapio.categoria.nome }</td>
 							<td>${item.quantidade }</td>
 							<td>${item.preco }</td>
-							<td><a href="excluir-item-cardapio.do?id=${item.id }"
+							<td><a href="${linkTo[DeliveryController].excluirItem}?id=${item.id }"
 								class="btn btn-danger"><span
 									class="glyphicon glyphicon-remove"></span></a></td>
 

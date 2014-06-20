@@ -7,7 +7,7 @@
 
 <t:top>
 	<jsp:attribute name="titulo">
-      Listar Pedido Delivery
+      Listar Clientes
     </jsp:attribute>
 </t:top>
 
@@ -37,24 +37,26 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Data</th>
-							<th>Total</th>
-							<th>Status</th>
-							<th>Açoes</th>
+							<th>Nome</th>
+							<th>Login</th>
+							<th>Email</th>
+							<th>Celular</th>
+							<th>Acoes</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${deliveryList}" var="pedido">
+						<c:forEach items="${clienteList}" var="cliente">
 							<tr>
-								<td>${pedido.id }</td>
-								<td>${pedido.data }</td>
-								<td>${pedido.total }</td>
-								<td>${pedido.status }</td>
+								<td>${cliente.id }</td>
+								<td>${cliente.nome }</td>
+								<td>${cliente.loginName }</td>
+								<td>${cliente.email }</td>
+								<td>${cliente.celular }</td>
 								<td><a
-									href="${linkTo[DeliveryController].alterar}${pedido.id }"
+									href="${linkTo[ClienteController].alterar}${cliente.id }"
 									class="btn btn-primary"><span
 										class="glyphicon glyphicon-pencil"></span></a> <a
-									href="${linkTo[DeliveryController].excluir}?id=${pedido.id }"
+									href="${linkTo[ClienteController].excluir}?id=${cliente.id }"
 									class="btn btn-danger"><span
 										class="glyphicon glyphicon-remove"></span></a></td>
 							</tr>
