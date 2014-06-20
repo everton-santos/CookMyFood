@@ -8,64 +8,65 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
 import com.everton.cookmyfood.Aplicacao.CardapioAplicacao;
-import com.everton.cookmyfood.Aplicacao.ClienteAplicacao;
-import com.everton.cookmyfood.Aplicacao.DeliveryAplicacao;
 import com.everton.cookmyfood.Aplicacao.ItemCardapioAplicacao;
+import com.everton.cookmyfood.Aplicacao.MesaAplicacao;
 import com.everton.cookmyfood.Aplicacao.PedidoAplicacao;
+import com.everton.cookmyfood.Aplicacao.PedidoTradicionalAplicacao;
 import com.everton.cookmyfood.Models.Cardapio;
-import com.everton.cookmyfood.Models.Cliente;
-import com.everton.cookmyfood.Models.Delivery;
 import com.everton.cookmyfood.Models.ItemCardapio;
+import com.everton.cookmyfood.Models.Mesa;
 import com.everton.cookmyfood.Models.Pedido;
+import com.everton.cookmyfood.Models.PedidoTradicional;
 import com.everton.cookmyfood.Models.StatusPedido;
 
 @Resource
-public class DeliveryController {
+public class PedidoTradicionalController {
 
 	private final Result result;
 
-	public DeliveryController(Result result) {
+	public PedidoTradicionalController(Result result) {
 		this.result = result;
 	}
 
-	@Path("/pedidos/delivery")
-	public List<Delivery> index() {
-		DeliveryAplicacao app = new DeliveryAplicacao();
-		return app.listar(new Delivery());
+	@Path("/pedidos/tradicional")
+	public List<PedidoTradicional> index() {
+		PedidoTradicionalAplicacao app = new PedidoTradicionalAplicacao();
+		return app.listar(new PedidoTradicional());
 	}
 
 	public void formulario() {
-		Delivery d = new Delivery();
+		PedidoTradicional d = new PedidoTradicional();
 
-		Cliente c = new ClienteAplicacao().listar(new Cliente()).get(0);
-
-		d.setCliente(c);
 		d.setStatus(StatusPedido.EmConsumo);
 
-		DeliveryAplicacao app = new DeliveryAplicacao();
+		PedidoTradicionalAplicacao app = new PedidoTradicionalAplicacao();
 		app.salvar(d);
 
 		result.redirectTo(this).alterar(d.getId());
 	}
 
-	@Path("/pedidos/delivery/{id}")
-	public Delivery alterar(Long id) {
+	@Path("/pedidos/tradicional/{id}")
+	public PedidoTradicional alterar(Long id) {
 
 		List<Cardapio> cardapios = new CardapioAplicacao()
 				.listar(new Cardapio());
 
 		result.include("cardapios", cardapios);
+		
+		List<Mesa> mesas = new MesaAplicacao().listar(new Mesa());
+		
+		result.include("mesas", mesas);
 
-		DeliveryAplicacao app = new DeliveryAplicacao();
+		PedidoTradicionalAplicacao app = new PedidoTradicionalAplicacao();
 		return app.consultarPorID(id);
 	}
 
 	@Post
-	public void cadastrarItem(Long id, ItemCardapio item, Cardapio cardapio) {
+	public void cadastrarItem(Long id, ItemCardapio item, Cardapio cardapio, Mesa mesa) {
 
-		DeliveryAplicacao app = new DeliveryAplicacao();
+		PedidoTradicionalAplicacao app = new PedidoTradicionalAplicacao();
 
-		Delivery delivery = app.consultarPorID(id);
+		PedidoTradicional delivery = app.consultarPorID(id);
 
 		ItemCardapioAplicacao aplicacao = new ItemCardapioAplicacao();
 
@@ -74,8 +75,12 @@ public class DeliveryController {
 		item.setPedido(delivery);
 
 		cardapio = new CardapioAplicacao().consultarPorID(cardapio.GetId());
+		
+		mesa = new MesaAplicacao().consultarPorID(mesa.GetId());
 
 		item.setCardapio(cardapio);
+		
+		delivery.setMesa(mesa);
 
 		app.salvar(delivery);
 
@@ -98,7 +103,7 @@ public class DeliveryController {
 	}
 
 	public void excluir(Long id) {
-		
+
 		PedidoAplicacao app = new PedidoAplicacao();
 
 		Pedido item = app.consultarPorID(id);
@@ -115,19 +120,17 @@ public class DeliveryController {
 
 		result.redirectTo(this).index();
 	}
-	
-	public void pesquisar(Long id){
+
+	public void pesquisar(Long id) {
 		PedidoAplicacao app = new PedidoAplicacao();
 
 		Pedido item = app.consultarPorID(id);
-		
+
 		if (item != null) {
 			result.redirectTo(this).alterar(id);
-		}
-		else
-		{
+		} else {
 			result.redirectTo(this).index();
-			
+
 		}
 	}
 }

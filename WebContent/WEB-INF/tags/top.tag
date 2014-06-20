@@ -8,10 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="/CookMyFood/css/bootstrap.min.css" rel="stylesheet">
-<link href="/CookMyFood/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="/CookMyFood/font-awesome/css/font-awesome.css"
+	rel="stylesheet">
 
-<link href="/CookMyFood/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-<link href="/CookMyFood/css/plugins/timeline/timeline.css" rel="stylesheet">
+<link href="/CookMyFood/css/plugins/morris/morris-0.4.3.min.css"
+	rel="stylesheet">
+<link href="/CookMyFood/css/plugins/timeline/timeline.css"
+	rel="stylesheet">
 
 <link href="/CookMyFood/css/sb-admin.css" rel="stylesheet">
 
@@ -46,8 +49,8 @@
 					<ul class="dropdown-menu dropdown-user">
 						<li><a href="#"><i class="fa fa-user fa-fw"></i><%=request.getSession().getAttribute("user-name")%></a></li></li>
 				<li class="divider"></li>
-				<li><a href="${linkTo[HomeController].index}"><i class="fa fa-sign-out fa-fw"></i>
-						Sair</a></li>
+				<li><a href="${linkTo[HomeController].index}"><i
+						class="fa fa-sign-out fa-fw"></i> Sair</a></li>
 			</ul>
 			<!-- /.dropdown-user -->
 			</li>
@@ -69,13 +72,20 @@
 						<li class=""><a href="#"> <i class="fa fa-fw"></i> Pedido
 								Delivery<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
-								<li><a href="${linkTo[DeliveryController].index}">Pedidos</a></li>
-								<li><a href="${linkTo[DeliveryController].formulario}">Novo pedido</a></li>
+								<li><a href="${linkTo[DeliveryController].index}">Listar</a></li>
+								<li><a href="${linkTo[DeliveryController].formulario}">Cadastrar</a></li>
+							</ul> <!-- /.nav-second-level --></li>
+
+						<li class=""><a href="#"> <i class="fa fa-fw"></i> Pedido
+								Pedido Tradicional<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse" style="height: 0px;">
+								<li><a href="${linkTo[PedidoTradicionalController].index}">Listar</a></li>
+								<li><a href="${linkTo[PedidoTradicionalController].formulario}">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
 
-						<li class=""><a href="#"> <i class="fa fa-fw"></i> Funcionario<span
-								class="fa arrow"></span></a>
+						<li class=""><a href="#"> <i class="fa fa-fw"></i>
+								Funcionario<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
 								<li><a href="${linkTo[FuncionarioController].index}">Listar</a></li>
 								<li><a href="${linkTo[FuncionarioController].formulario}">Cadastrar</a></li>

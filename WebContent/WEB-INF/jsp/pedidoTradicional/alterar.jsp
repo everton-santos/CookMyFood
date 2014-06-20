@@ -8,37 +8,44 @@
 
 <t:top>
 	<jsp:attribute name="titulo">
-      Pedido Delivery
+      Pedido Tradicional
     </jsp:attribute>
 </t:top>
 
 <div class="col-md-12">
 
 	<div class="panel panel-default">
-		<div class="panel-heading">Pedido Delivery</div>
+		<div class="panel-heading">Pedido Tradicional</div>
 		<div class="panel-body">
 			<div class="row">
 
 				<form role="form" method="post"
-					action="${linkTo[DeliveryController].cadastrarItem}">
+					action="${linkTo[PedidoTradicionalController].cadastrarItem}">
 
-					<input type="hidden" name="id" value="${delivery.id }" />
+					<input type="hidden" name="id" value="${pedidoTradicional.id }" />
 
-					<div class="col-lg-5">
+					<div class="col-lg-4">
 						<div class="form-group">
 							<select class="form-control" name="cardapio.id">
 								<c:forEach items="${cardapios}" var="cardapio">
 									<option value="${cardapio.id}">${cardapio.nome}|R$
 										${cardapio.preco}</option>
 								</c:forEach>
-
-
 							</select>
 						</div>
 					</div>
-					<div class="col-lg-5">
+					<div class="col-lg-3">
 						<div class="form-group">
-							<input name="item.quantidade" class="form-control" />
+							<input name="item.quantidade" class="form-control" placeholder="Quantidade" />
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="form-group">
+							<select class="form-control" name="mesa.id">
+								<c:forEach items="${mesas}" var="mesa">
+									<option value="${mesa.id}">Num: ${mesa.numero} | capacidade: ${mesa.capacidade }</option>
+								</c:forEach>
+							</select>
 						</div>
 					</div>
 					<div class="col-lg-2">
@@ -60,14 +67,14 @@
 				</thead>
 				<tbody>
 
-					<c:forEach items="${delivery.itensCardapio}" var="item">
+					<c:forEach items="${pedidoTradicional.itensCardapio}" var="item">
 						<tr>
 							<td>${item.id }</td>
 							<td>${item.cardapio.nome }</td>
 							<td>${item.cardapio.categoria.nome }</td>
 							<td>${item.quantidade }</td>
 							<td>${item.preco }</td>
-							<td><a href="${linkTo[DeliveryController].excluirItem}?id=${item.id }"
+							<td><a href="${linkTo[PedidoTradicionalController].excluirItem}?id=${item.id }"
 								class="btn btn-danger"><span
 									class="glyphicon glyphicon-remove"></span></a></td>
 
@@ -75,7 +82,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<label>${delivery.total}</label>
+			<label>${pedidoTradicional.total}</label>
 		</div>
 
 	</div>
