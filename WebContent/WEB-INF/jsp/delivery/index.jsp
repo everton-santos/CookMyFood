@@ -5,8 +5,6 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 
-
-
 <t:top>
 	<jsp:attribute name="titulo">
       Listar Pedido Delivery
