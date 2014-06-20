@@ -32,8 +32,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Sistema de Controle de
-					Restaurante</a>
+				<a class="navbar-brand" href="${linkTo[HomeController].index}">Sistema
+					de Controle de Restaurante</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -46,7 +46,7 @@
 					<ul class="dropdown-menu dropdown-user">
 						<li><a href="#"><i class="fa fa-user fa-fw"></i><%=request.getSession().getAttribute("user-name")%></a></li></li>
 				<li class="divider"></li>
-				<li><a href="index.html"><i class="fa fa-sign-out fa-fw"></i>
+				<li><a href="${linkTo[HomeController].index}"><i class="fa fa-sign-out fa-fw"></i>
 						Sair</a></li>
 			</ul>
 			<!-- /.dropdown-user -->
@@ -62,36 +62,23 @@
 						<li class=""><a href="#"> <i class="fa fa-fw"></i>
 								Cliente<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
-								<li><a href="lista-cliente.do">Listar</a></li>
-								<li><a href="cadastro-cliente.jsp">Cadastrar</a></li>
+								<li><a href="${linkTo[ClienteController].index}">Listar</a></li>
+								<li><a href="${linkTo[ClienteController].formulario}">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
 						<li class=""><a href="#"> <i class="fa fa-fw"></i> Pedido
 								Delivery<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
-								<li><a href="lista-pedido-delivery.do">Meus Pedidos</a></li>
-								<li><a href="cadastro-pedido-delivery.do">Cadastrar</a></li>
+								<li><a href="${linkTo[DeliveryController].index}">Pedidos</a></li>
+								<li><a href="${linkTo[DeliveryController].formulario}">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
-						<li class=""><a href="#"> <i class="fa fa-fw"></i>
-								Categoria<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level collapse" style="height: 0px;">
-								<li><a href="lista-categoria.do">Listar</a></li>
-								<li><a href="cadastro-categoria.jsp">Cadastrar</a></li>
-							</ul> <!-- /.nav-second-level --></li>
-
-						<li class=""><a href="#"> <i class="fa fa-fw"></i> Mesa<span
-								class="fa arrow"></span></a>
-							<ul class="nav nav-second-level collapse" style="height: 0px;">
-								<li><a href="lista-mesa.do">Listar</a></li>
-								<li><a href="cadastro-mesa.jsp">Cadastrar</a></li>
-							</ul> <!-- /.nav-second-level --></li>
 
 						<li class=""><a href="#"> <i class="fa fa-fw"></i> Funcionario<span
 								class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse" style="height: 0px;">
-								<li><a href="lista-funcionario.do">Listar</a></li>
-								<li><a href="cadastro-funcionario.jsp">Cadastrar</a></li>
+								<li><a href="${linkTo[FuncionarioController].index}">Listar</a></li>
+								<li><a href="${linkTo[FuncionarioController].formulario}">Cadastrar</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 
 					</ul>

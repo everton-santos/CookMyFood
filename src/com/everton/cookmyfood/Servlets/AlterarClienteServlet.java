@@ -33,6 +33,7 @@ public class AlterarClienteServlet extends HttpServlet {
 		if (cliente != null) {
 
 			request.setAttribute("cliente", cliente);
+			
 
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher("/alterar-cliente.jsp");

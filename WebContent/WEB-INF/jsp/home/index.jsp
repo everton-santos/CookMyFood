@@ -32,7 +32,7 @@
 						<h3 class="panel-title">Faça login para utilizar o sistema</h3>
 					</div>
 					<div class="panel-body">
-						<form role="form" action="login.do" method="post">
+						<form role="form" action="${linkTo[HomeController].login}" method="post">
 							<fieldset>
 								<div class="form-group">
 									<input class="form-control" placeholder="Nome do usuario"
