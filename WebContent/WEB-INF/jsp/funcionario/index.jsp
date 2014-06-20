@@ -7,7 +7,7 @@
 
 <t:top>
 	<jsp:attribute name="titulo">
-      Listar Clientes
+      Listar Funcionarios
     </jsp:attribute>
 </t:top>
 
@@ -16,7 +16,6 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			
 
 		</div>
 		<!-- /.panel-heading -->
@@ -28,24 +27,24 @@
 							<th>#</th>
 							<th>Nome</th>
 							<th>Login</th>
-							<th>Email</th>
-							<th>Celular</th>
+							<th>Salario</th>
+							<th>Cpf</th>
 							<th>Acoes</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${clienteList}" var="cliente">
+						<c:forEach items="${funcionarioList}" var="funcionario">
 							<tr>
-								<td>${cliente.id }</td>
-								<td>${cliente.nome }</td>
-								<td>${cliente.loginName }</td>
-								<td>${cliente.email }</td>
-								<td>${cliente.celular }</td>
+								<td>${funcionario.id }</td>
+								<td>${funcionario.nome }</td>
+								<td>${funcionario.loginName }</td>
+								<td>R$ ${funcionario.salario }</td>
+								<td>${funcionario.cpf }</td>
 								<td><a
-									href="${linkTo[ClienteController].alterar}${cliente.id }"
+									href="${linkTo[FuncionarioController].alterar}${funcionario.id }"
 									class="btn btn-primary"><span
 										class="glyphicon glyphicon-pencil"></span></a> <a
-									href="${linkTo[ClienteController].excluir}?id=${cliente.id }"
+									href="${linkTo[FuncionarioController].excluir}?id=${funcionario.id }"
 									class="btn btn-danger"><span
 										class="glyphicon glyphicon-remove"></span></a></td>
 							</tr>
